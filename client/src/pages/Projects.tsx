@@ -21,7 +21,7 @@ export default function Projects() {
       description:
         'Projeto acadêmico com foco em semântica HTML, responsividade e boas práticas de estilização para apresentação institucional.',
       technologies: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/Arachato/site-institucional',
+      github: 'https://github.com/seu-usuario/site-institucional',
       date: '2022',
       year: 2022,
       image: '/projects/project-home.png',
@@ -32,7 +32,7 @@ export default function Projects() {
       description:
         'Aplicação para organização de tarefas com filtros, status e persistência local para acompanhamento do fluxo de trabalho.',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      github: 'https://github.com/Arachato/dashboard-tarefas',
+      github: 'https://github.com/seu-usuario/dashboard-tarefas',
       date: '2023',
       year: 2023,
       image: '/projects/project-about.png',
@@ -43,7 +43,7 @@ export default function Projects() {
       description:
         'Back-end REST para gerenciamento de produtos com validações, rotas CRUD e organização em camadas.',
       technologies: ['Node.js', 'Express', 'TypeScript', 'PostgreSQL'],
-      github: 'https://github.com/Arachato/api-catalogo-produtos',
+      github: 'https://github.com/seu-usuario/api-catalogo-produtos',
       date: '2024',
       year: 2024,
       image: '/projects/project-projects.png',
@@ -54,7 +54,7 @@ export default function Projects() {
       description:
         'Portfólio completo com páginas Sobre, Projetos, Experiências e Contato, incluindo formulário funcional e design responsivo.',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Express'],
-      github: 'https://github.com/Arachato/lab-desenvolvimento-atv01',
+      github: 'https://github.com/seu-usuario/lab-desenvolvimento-atv01',
       date: '2025',
       year: 2025,
       image: '/projects/project-experience.png',
@@ -65,7 +65,7 @@ export default function Projects() {
       description:
         'Aplicação full stack para agendamentos com autenticação, confirmação de horários e interface adaptada para dispositivos móveis.',
       technologies: ['React', 'Node.js', 'Prisma', 'PostgreSQL'],
-      github: 'https://github.com/Arachato/sistema-agendamento',
+      github: 'https://github.com/seu-usuario/sistema-agendamento',
       date: '2026',
       year: 2026,
       image: '/projects/project-contact.png',

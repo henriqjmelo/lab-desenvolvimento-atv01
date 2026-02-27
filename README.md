@@ -165,7 +165,7 @@ Imagens disponíveis em `Telas/`:
 
 Template sugerido pelo professor:
 
-https://github.com/joaopauloaramuni/laboratorio-de-desenvolvimento-de-software/blob/main/TEMPLATES/template_README.md
+Template oficial da disciplina (README) disponibilizado na organização da matéria.
 
 ---
 

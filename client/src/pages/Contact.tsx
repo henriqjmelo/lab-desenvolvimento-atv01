@@ -72,9 +72,9 @@ export default function Contact() {
   ];
 
   const socialLinks = [
-    { icon: <Github size={24} />, url: 'https://github.com/Arachato', label: 'GitHub' },
-    { icon: <Linkedin size={24} />, url: 'https://www.linkedin.com/in/kaiojorge-dev', label: 'LinkedIn' },
-    { icon: <Twitter size={24} />, url: 'https://x.com/kaiojorge_dev', label: 'X / Twitter' },
+    { icon: <Github size={24} />, url: 'https://github.com/seu-usuario', label: 'GitHub' },
+    { icon: <Linkedin size={24} />, url: 'https://www.linkedin.com/in/seu-perfil', label: 'LinkedIn' },
+    { icon: <Twitter size={24} />, url: 'https://x.com/seu_usuario', label: 'X / Twitter' },
     { icon: <Mail size={24} />, url: 'mailto:gabrielvieira200481@gmail.com', label: 'Email' },
   ];
 

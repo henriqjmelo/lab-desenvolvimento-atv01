@@ -49,7 +49,7 @@ export default function Footer() {
                 <Mail size={20} />
               </a>
               <a
-                href="https://github.com/Arachato"
+                href="https://github.com/seu-usuario"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white rounded-lg hover:bg-primary hover:text-white transition-smooth"
@@ -58,7 +58,7 @@ export default function Footer() {
                 <Github size={20} />
               </a>
               <a
-                href="https://www.linkedin.com/in/kaiojorge-dev"
+                href="https://www.linkedin.com/in/seu-perfil"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white rounded-lg hover:bg-primary hover:text-white transition-smooth"
@@ -67,7 +67,7 @@ export default function Footer() {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://x.com/kaiojorge_dev"
+                href="https://x.com/seu_usuario"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white rounded-lg hover:bg-primary hover:text-white transition-smooth"
