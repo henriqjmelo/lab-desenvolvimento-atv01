@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import fs from "node:fs";
 import path from "node:path";
+import nodemailer from "nodemailer";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
@@ -98,6 +99,93 @@ function vitePluginManusDebugCollector(): Plugin {
     },
 
     configureServer(server: ViteDevServer) {
+      server.middlewares.use("/api/contact", (req, res, next) => {
+        if (req.method !== "POST") {
+          return next();
+        }
+
+        let body = "";
+        req.on("data", (chunk) => {
+          body += chunk.toString();
+        });
+
+        req.on("end", async () => {
+          try {
+            const payload = body ? JSON.parse(body) : {};
+            const name = String(payload?.name ?? "").trim();
+            const email = String(payload?.email ?? "").trim();
+            const message = String(payload?.message ?? "").trim();
+
+            if (!name || name.length < 2) {
+              res.writeHead(400, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "Nome inválido" }));
+              return;
+            }
+
+            const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            if (!isEmailValid) {
+              res.writeHead(400, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "E-mail inválido" }));
+              return;
+            }
+
+            if (!message || message.length < 10) {
+              res.writeHead(400, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "Mensagem deve ter ao menos 10 caracteres" }));
+              return;
+            }
+
+            const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
+
+            if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !CONTACT_TO_EMAIL) {
+              res.writeHead(500, { "Content-Type": "application/json" });
+              res.end(
+                JSON.stringify({
+                  error:
+                    "Serviço de e-mail não configurado. Defina SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS e CONTACT_TO_EMAIL.",
+                }),
+              );
+              return;
+            }
+
+            const transporter = nodemailer.createTransport({
+              host: SMTP_HOST,
+              port: Number(SMTP_PORT),
+              secure: Number(SMTP_PORT) === 465,
+              auth: {
+                user: SMTP_USER,
+                pass: SMTP_PASS,
+              },
+            });
+
+            await transporter.sendMail({
+              from: CONTACT_FROM_EMAIL || SMTP_USER,
+              to: CONTACT_TO_EMAIL,
+              replyTo: email,
+              subject: `Novo contato do portfólio - ${name}`,
+              text: `Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`,
+              html: `
+                <h2>Novo contato do portfólio</h2>
+                <p><strong>Nome:</strong> ${name}</p>
+                <p><strong>E-mail:</strong> ${email}</p>
+                <p><strong>Mensagem:</strong></p>
+                <p>${message.replace(/\n/g, "<br />")}</p>
+              `,
+            });
+
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ ok: true }));
+          } catch (error) {
+            res.writeHead(500, { "Content-Type": "application/json" });
+            res.end(
+              JSON.stringify({
+                error: error instanceof Error ? error.message : "Falha ao enviar e-mail",
+              }),
+            );
+          }
+        });
+      });
+
       // POST /__manus__/logs: Browser sends logs (written directly to files)
       server.middlewares.use("/__manus__/logs", (req, res, next) => {
         if (req.method !== "POST") {
