@@ -1,4 +1,3 @@
-import { useMemo, useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -10,92 +9,62 @@ interface Project {
   github: string;
   demo?: string;
   date: string;
-  year: number;
   image?: string;
 }
 
 export default function Projects() {
-  const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
-  const [selectedTech, setSelectedTech] = useState<string>('all');
-
   const projects: Project[] = [
     {
       id: 1,
-      title: 'Site Institucional Responsivo',
-      description:
-        'Projeto acadêmico com foco em semântica HTML, responsividade e boas práticas de estilização para apresentação institucional.',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/seu-usuario/site-institucional',
-      date: '2022',
-      year: 2022,
-      image: '/projects/project-home.png',
+      title: 'E-commerce Platform',
+      description: 'Plataforma de e-commerce completa com carrinho de compras, pagamento integrado e painel administrativo.',
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+      github: 'https://github.com',
+      demo: 'https://example.com',
+      date: '2024',
+      image: 'https://images.unsplash.com/photo-1460925895917-adf4e565db18?w=500&h=300&fit=crop',
     },
     {
       id: 2,
-      title: 'Dashboard de Tarefas',
-      description:
-        'Aplicação para organização de tarefas com filtros, status e persistência local para acompanhamento do fluxo de trabalho.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      github: 'https://github.com/seu-usuario/dashboard-tarefas',
+      title: 'Task Management App',
+      description: 'Aplicativo de gerenciamento de tarefas com sincronização em tempo real e colaboração em equipe.',
+      technologies: ['React', 'Firebase', 'Tailwind CSS'],
+      github: 'https://github.com',
+      demo: 'https://example.com',
       date: '2023',
-      year: 2023,
-      image: '/projects/project-about.png',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop',
     },
     {
       id: 3,
-      title: 'API de Catálogo de Produtos',
-      description:
-        'Back-end REST para gerenciamento de produtos com validações, rotas CRUD e organização em camadas.',
-      technologies: ['Node.js', 'Express', 'TypeScript', 'PostgreSQL'],
-      github: 'https://github.com/seu-usuario/api-catalogo-produtos',
-      date: '2024',
-      year: 2024,
-      image: '/projects/project-projects.png',
+      title: 'Weather Dashboard',
+      description: 'Dashboard de previsão do tempo com integração de API, gráficos interativos e localização automática.',
+      technologies: ['React', 'TypeScript', 'Chart.js', 'OpenWeather API'],
+      github: 'https://github.com',
+      demo: 'https://example.com',
+      date: '2023',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop',
     },
     {
       id: 4,
-      title: 'Portfólio Profissional (Lab 01)',
-      description:
-        'Portfólio completo com páginas Sobre, Projetos, Experiências e Contato, incluindo formulário funcional e design responsivo.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Express'],
-      github: 'https://github.com/seu-usuario/lab-desenvolvimento-atv01',
-      date: '2025',
-      year: 2025,
-      image: '/projects/project-experience.png',
+      title: 'Blog Platform',
+      description: 'Plataforma de blog com editor de markdown, categorias, busca e sistema de comentários.',
+      technologies: ['Next.js', 'Markdown', 'PostgreSQL', 'Vercel'],
+      github: 'https://github.com',
+      demo: 'https://example.com',
+      date: '2023',
+      image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=500&h=300&fit=crop',
     },
     {
       id: 5,
-      title: 'Sistema de Agendamento',
-      description:
-        'Aplicação full stack para agendamentos com autenticação, confirmação de horários e interface adaptada para dispositivos móveis.',
-      technologies: ['React', 'Node.js', 'Prisma', 'PostgreSQL'],
-      github: 'https://github.com/seu-usuario/sistema-agendamento',
-      date: '2026',
-      year: 2026,
-      image: '/projects/project-contact.png',
+      title: 'Portfolio Website',
+      description: 'Website de portfólio responsivo com design moderno, animações suaves e otimização de performance.',
+      technologies: ['React', 'Tailwind CSS', 'Framer Motion'],
+      github: 'https://github.com',
+      demo: 'https://example.com',
+      date: '2024',
+      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop',
     },
   ];
-
-  const availableYears = useMemo(() => {
-    const years = Array.from(new Set(projects.map((project) => project.year)));
-    return years.sort((a, b) => a - b);
-  }, [projects]);
-
-  const availableTechs = useMemo(() => {
-    const technologies = new Set<string>();
-    projects.forEach((project) => {
-      project.technologies.forEach((technology) => technologies.add(technology));
-    });
-
-    return Array.from(technologies).sort((a, b) => a.localeCompare(b));
-  }, [projects]);
-
-  const timelineProjects = useMemo(() => {
-    return projects
-      .filter((project) => selectedYear === 'all' || project.year === selectedYear)
-      .filter((project) => selectedTech === 'all' || project.technologies.includes(selectedTech))
-      .sort((a, b) => a.year - b.year || a.id - b.id);
-  }, [projects, selectedYear, selectedTech]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-white to-secondary/30 py-20">
@@ -104,67 +73,9 @@ export default function Projects() {
         <div className="accent-line mb-16 animate-slideInLeft">
           <h1 className="text-5xl font-bold text-foreground mb-4">Projetos</h1>
           <p className="text-xl text-primary font-semibold">
-            Linha do tempo dos meus projetos (do mais antigo ao mais recente)
+            Alguns dos meus trabalhos recentes
           </p>
         </div>
-
-        <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white border border-border rounded-xl p-4">
-            <label htmlFor="project-year" className="block text-sm font-semibold text-foreground mb-2">
-              Filtrar por ano
-            </label>
-            <select
-              id="project-year"
-              value={selectedYear}
-              onChange={(event) => {
-                const value = event.target.value;
-                setSelectedYear(value === 'all' ? 'all' : Number(value));
-              }}
-              className="w-full px-3 py-2 border border-border rounded-lg bg-white text-foreground"
-            >
-              <option value="all">Todos os anos</option>
-              {availableYears.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="bg-white border border-border rounded-xl p-4">
-            <label htmlFor="project-tech" className="block text-sm font-semibold text-foreground mb-2">
-              Filtrar por tecnologia
-            </label>
-            <select
-              id="project-tech"
-              value={selectedTech}
-              onChange={(event) => setSelectedTech(event.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-lg bg-white text-foreground"
-            >
-              <option value="all">Todas as tecnologias</option>
-              {availableTechs.map((technology) => (
-                <option key={technology} value={technology}>
-                  {technology}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        {(selectedYear !== 'all' || selectedTech !== 'all') && (
-          <div className="mb-10 flex justify-end">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => {
-                setSelectedYear('all');
-                setSelectedTech('all');
-              }}
-            >
-              Limpar filtros
-            </Button>
-          </div>
-        )}
 
         {/* Timeline */}
         <div className="relative mb-20">
@@ -173,13 +84,7 @@ export default function Projects() {
 
           {/* Projects */}
           <div className="space-y-12">
-            {timelineProjects.length === 0 && (
-              <div className="bg-white border border-border rounded-xl p-8 text-center">
-                <p className="text-muted-foreground">Nenhum projeto encontrado para os filtros selecionados.</p>
-              </div>
-            )}
-
-            {timelineProjects.map((project, idx) => (
+            {projects.map((project, idx) => (
               <div
                 key={project.id}
                 className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
@@ -238,7 +143,7 @@ export default function Projects() {
                       </div>
                     </div>
                     {/* Right - Image */}
-                    <div>
+                    <div className="hidden md:block">
                       <div className="rounded-xl overflow-hidden shadow-lg border border-border card-hover">
                         <img
                           src={project.image}
@@ -251,7 +156,7 @@ export default function Projects() {
                 ) : (
                   <>
                     {/* Left - Image */}
-                    <div>
+                    <div className="hidden md:block">
                       <div className="rounded-xl overflow-hidden shadow-lg border border-border card-hover">
                         <img
                           src={project.image}

@@ -29,9 +29,9 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">GV</span>
+            <span className="text-white font-bold text-sm">JP</span>
           </div>
-          <span className="font-bold text-lg text-foreground hidden sm:inline">Gabriel Afonso</span>
+          <span className="font-bold text-lg text-foreground hidden sm:inline">João Paulo</span>
         </div>
 
         {/* Desktop Navigation */}

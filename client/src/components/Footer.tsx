@@ -42,14 +42,14 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4 text-foreground">Redes Sociais</h3>
             <div className="flex gap-4">
               <a
-                href="mailto:gabrielvieira200481@gmail.com"
+                href="mailto:contato@example.com"
                 className="p-2 bg-white rounded-lg hover:bg-primary hover:text-white transition-smooth"
                 title="Email"
               >
                 <Mail size={20} />
               </a>
               <a
-                href="https://github.com/seu-usuario"
+                href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white rounded-lg hover:bg-primary hover:text-white transition-smooth"
@@ -58,7 +58,7 @@ export default function Footer() {
                 <Github size={20} />
               </a>
               <a
-                href="https://www.linkedin.com/in/seu-perfil"
+                href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white rounded-lg hover:bg-primary hover:text-white transition-smooth"
@@ -67,7 +67,7 @@ export default function Footer() {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://x.com/seu_usuario"
+                href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white rounded-lg hover:bg-primary hover:text-white transition-smooth"
@@ -82,7 +82,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-border pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {currentYear} Gabriel Afonso Infante Vieira.
+            © {currentYear} João Paulo. Todos os direitos reservados.
           </p>
         </div>
       </div>

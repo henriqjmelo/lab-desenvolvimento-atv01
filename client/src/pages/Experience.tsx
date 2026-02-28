@@ -15,21 +15,19 @@ export default function Experience() {
     {
       id: 1,
       type: 'work',
-      title: 'Desenvolvedor Front-end (Freelancer)',
-      company: 'Projetos Independentes',
-      period: '2024 - Presente',
-      description:
-        'Criação de interfaces modernas com React e Tailwind CSS para landing pages, portfólios e dashboards, com foco em responsividade e usabilidade.',
+      title: 'Desenvolvedor Full Stack',
+      company: 'Tech Solutions Inc.',
+      period: '2023 - Presente',
+      description: 'Desenvolvimento de aplicações web escaláveis usando React, Node.js e PostgreSQL. Responsável por arquitetura de sistemas e otimização de performance.',
       icon: <Briefcase className="text-primary" size={24} />,
     },
     {
       id: 2,
       type: 'work',
-      title: 'Monitor Acadêmico de Programação',
-      company: 'PUC Minas',
-      period: '2023 - 2024',
-      description:
-        'Apoio a alunos em lógica de programação, estruturas de dados e desenvolvimento web, além de auxílio em correções e boas práticas de código.',
+      title: 'Desenvolvedor Frontend',
+      company: 'Digital Agency',
+      period: '2022 - 2023',
+      description: 'Criação de interfaces responsivas com React e Tailwind CSS. Implementação de animações e melhorias de UX. Colaboração com designers e backend developers.',
       icon: <Briefcase className="text-primary" size={24} />,
     },
     {
@@ -37,9 +35,8 @@ export default function Experience() {
       type: 'education',
       title: 'Engenharia de Software',
       company: 'PUC Minas',
-      period: '2022 - 2026',
-      description:
-        'Formação com foco em desenvolvimento de software, arquitetura de sistemas, qualidade de código, testes e metodologias ágeis.',
+      period: '2020 - 2024',
+      description: 'Formação em Engenharia de Software com foco em desenvolvimento web, arquitetura de sistemas e metodologias ágeis.',
       icon: <Award className="text-primary" size={24} />,
     },
     {
@@ -47,19 +44,17 @@ export default function Experience() {
       type: 'event',
       title: 'Contribuidor Open Source',
       company: 'Comunidade GitHub',
-      period: '2024 - Presente',
-      description:
-        'Participação em issues, melhorias e documentação de projetos open source, praticando colaboração e versionamento com Git/GitHub.',
+      period: '2023 - Presente',
+      description: 'Contribuições regulares em projetos open source. Participação em code reviews e discussões técnicas com a comunidade.',
       icon: <Code className="text-primary" size={24} />,
     },
     {
       id: 5,
       type: 'event',
-      title: 'Participante - Semana de Tecnologia',
-      company: 'PUC Minas / Comunidade Dev',
-      period: 'Outubro 2025',
-      description:
-        'Participação em palestras e workshops sobre engenharia de software, cloud e desenvolvimento front-end com React e TypeScript.',
+      title: 'Participante - Tech Conference 2023',
+      company: 'DevCon Brasil',
+      period: 'Setembro 2023',
+      description: 'Participação em conferência de desenvolvimento com palestras sobre React, performance e arquitetura de aplicações modernas.',
       icon: <Award className="text-primary" size={24} />,
     },
   ];

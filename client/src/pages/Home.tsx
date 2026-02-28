@@ -15,7 +15,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="animate-slideInLeft">
             <div className="accent-line mb-6">
               <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
-                Gabriel Afonso Infante Vieira
+                Kaio Jorge
               </h1>
               <p className="text-xl md:text-2xl text-primary font-semibold mt-2">
                 Desenvolvedor Full Stack
