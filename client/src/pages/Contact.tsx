@@ -8,8 +8,6 @@ export default function Contact() {
     email: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -17,65 +15,41 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage('');
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          message: formData.message.trim(),
-        }),
-      });
-
-      const result = await response.json();
-      if (!response.ok) {
-        throw new Error(result?.error || 'Não foi possível enviar sua mensagem.');
-      }
-
-      setSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setSubmitted(false), 3000);
-    } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : 'Erro inesperado ao enviar mensagem.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Simulating form submission
+    console.log('Form submitted:', formData);
+    setSubmitted(true);
+    setFormData({ name: '', email: '', message: '' });
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   const contactMethods = [
     {
       icon: <Mail size={24} />,
       title: 'Email',
-      value: 'gabrielvieira200481@gmail.com',
-      link: 'mailto:gabrielvieira200481@gmail.com',
+      value: 'contato@example.com',
+      link: 'mailto:contato@example.com',
     },
     {
       icon: <Phone size={24} />,
       title: 'WhatsApp',
-      value: '+55 (31) 98858-2004',
-      link: 'https://wa.me/5531988582004',
+      value: '+55 (31) 99999-9999',
+      link: 'https://wa.me/5531999999999',
     },
     {
       icon: <MapPin size={24} />,
       title: 'Localização',
       value: 'Belo Horizonte, MG',
-      link: 'https://maps.google.com/?q=Belo+Horizonte,+MG',
+      link: '#',
     },
   ];
 
   const socialLinks = [
-    { icon: <Github size={24} />, url: 'https://github.com/seu-usuario', label: 'GitHub' },
-    { icon: <Linkedin size={24} />, url: 'https://www.linkedin.com/in/seu-perfil', label: 'LinkedIn' },
-    { icon: <Twitter size={24} />, url: 'https://x.com/seu_usuario', label: 'X / Twitter' },
-    { icon: <Mail size={24} />, url: 'mailto:gabrielvieira200481@gmail.com', label: 'Email' },
+    { icon: <Github size={24} />, url: 'https://github.com', label: 'GitHub' },
+    { icon: <Linkedin size={24} />, url: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: <Twitter size={24} />, url: 'https://twitter.com', label: 'Twitter' },
+    { icon: <Mail size={24} />, url: 'mailto:contato@example.com', label: 'Email' },
   ];
 
   return (
@@ -120,12 +94,6 @@ export default function Contact() {
               </div>
             )}
 
-            {errorMessage && (
-              <div className="mb-6 p-4 bg-red-100 border border-red-300 rounded-lg">
-                <p className="text-red-800 font-semibold">{errorMessage}</p>
-              </div>
-            )}
-
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
@@ -138,7 +106,6 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  minLength={2}
                   className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-smooth"
                   placeholder="Seu nome"
                 />
@@ -170,7 +137,6 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  minLength={10}
                   rows={5}
                   className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-smooth resize-none"
                   placeholder="Sua mensagem aqui..."
@@ -179,11 +145,10 @@ export default function Contact() {
 
               <Button
                 type="submit"
-                disabled={isSubmitting}
                 className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-lg transition-smooth flex items-center justify-center gap-2"
               >
                 <Send size={20} />
-                {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                Enviar Mensagem
               </Button>
             </form>
           </div>

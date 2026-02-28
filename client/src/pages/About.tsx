@@ -7,41 +7,19 @@ export default function About() {
   const content = {
     pt: {
       title: 'Sobre Mim',
-      intro: 'Sou um desenvolvedor focado em criar soluções web modernas, acessíveis e bem estruturadas.',
-      trajectoryTitle: 'Trajetória',
-      skillsTitle: 'Habilidades',
-      interestsTitle: 'Interesses',
-      objectivesTitle: 'Objetivos',
-      description:
-        'Graduando em Engenharia de Software, venho desenvolvendo projetos acadêmicos e pessoais com foco em front-end e full stack. Gosto de transformar ideias em produtos reais, priorizando performance, legibilidade de código e boa experiência do usuário.',
+      intro: 'Intor genérica',
+      description: 'Com formação em Engenharia de Software, tenho experiência em desenvolvimento full stack, bla bla bla.',
       skills: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'PostgreSQL', 'Git', 'Docker', 'REST APIs'],
-      interests:
-        'Tenho interesse em desenvolvimento web, produtos digitais, open source e boas práticas de arquitetura de software.',
-      objectives:
-        'Meu objetivo é evoluir como engenheiro de software, contribuir em projetos desafiadores e gerar impacto positivo por meio da tecnologia.',
-      educationLabel: 'Formação:',
-      educationValue: 'Engenharia de Software - PUC Minas',
-      locationLabel: 'Localização:',
-      locationValue: 'Belo Horizonte, MG',
+      interests: 'Tenho interesse em desenvolvimento web, open source, design de interfaces e otimização de performance.',
+      objectives: 'Meu objetivo é contribuir para projetos desafiadores, crescer como desenvolvedor e impactar positivamente através da tecnologia.',
     },
     en: {
       title: 'About Me',
-      intro: 'I am a developer focused on building modern, accessible, and well-structured web solutions.',
-      trajectoryTitle: 'Journey',
-      skillsTitle: 'Skills',
-      interestsTitle: 'Interests',
-      objectivesTitle: 'Goals',
-      description:
-        'As a Software Engineering student, I have been building academic and personal projects focused on front-end and full stack development. I enjoy turning ideas into real products while prioritizing performance, code quality, and user experience.',
+      intro: 'I am a developer passionate about creating modern and accessible web solutions.',
+      description: 'With a background in Software Engineering, I have experience in full stack development, focusing on React, Node.js and scalable application architecture. I enjoy solving complex problems and learning new technologies.',
       skills: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'PostgreSQL', 'Git', 'Docker', 'REST APIs'],
-      interests:
-        'I am interested in web development, digital products, open source, and software architecture best practices.',
-      objectives:
-        'My goal is to grow as a software engineer, contribute to challenging projects, and create a positive impact through technology.',
-      educationLabel: 'Education:',
-      educationValue: 'Software Engineering - PUC Minas',
-      locationLabel: 'Location:',
-      locationValue: 'Belo Horizonte, Brazil',
+      interests: 'I am interested in web development, open source, interface design and performance optimization.',
+      objectives: 'My goal is to contribute to challenging projects, grow as a developer and make a positive impact through technology.',
     },
   };
 
@@ -86,23 +64,23 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           {/* Description */}
           <div className="animate-slideInLeft">
-            <h2 className="text-2xl font-bold text-foreground mb-4">{current.trajectoryTitle}</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-4">Trajetória</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               {current.description}
             </p>
             <div className="bg-secondary rounded-lg p-6 border border-border">
               <p className="text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">{current.educationLabel}</span> {current.educationValue}
+                <span className="font-semibold text-foreground">Formação:</span> Engenharia de Software - PUC Minas
               </p>
               <p className="text-sm text-muted-foreground mt-2">
-                <span className="font-semibold text-foreground">{current.locationLabel}</span> {current.locationValue}
+                <span className="font-semibold text-foreground">Localização:</span> Belo Horizonte, MG
               </p>
             </div>
           </div>
 
           {/* Skills */}
           <div className="animate-slideInRight">
-            <h2 className="text-2xl font-bold text-foreground mb-4">{current.skillsTitle}</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-4">Habilidades</h2>
             <div className="grid grid-cols-2 gap-3">
               {current.skills.map((skill, idx) => (
                 <div
@@ -121,7 +99,7 @@ export default function About() {
           <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8 border border-primary/20 animate-fadeInUp">
             <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
               <Globe size={24} className="text-primary" />
-              {current.interestsTitle}
+              Interesses
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               {current.interests}
@@ -131,7 +109,7 @@ export default function About() {
           <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8 border border-primary/20 animate-fadeInUp" style={{ animationDelay: '100ms' }}>
             <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
               <Globe size={24} className="text-primary" />
-              {current.objectivesTitle}
+              Objetivos
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               {current.objectives}
