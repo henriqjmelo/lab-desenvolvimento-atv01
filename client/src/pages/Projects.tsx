@@ -28,7 +28,7 @@ export default function Projects() {
       github: 'https://github.com/seu-usuario/site-institucional',
       date: '2022',
       year: 2022,
-      image: '/projects/project-home.png',
+      image: '../../public/projects/site-responsivo.png',
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ export default function Projects() {
       github: 'https://github.com/seu-usuario/dashboard-tarefas',
       date: '2023',
       year: 2023,
-      image: '/projects/project-about.png',
+      image: '../../public/projects/dash-tarefas.png',
     },
     {
       id: 3,
@@ -50,7 +50,7 @@ export default function Projects() {
       github: 'https://github.com/seu-usuario/api-catalogo-produtos',
       date: '2024',
       year: 2024,
-      image: '/projects/project-projects.png',
+      image: '../../public/projects/api.gif',
     },
     {
       id: 4,
@@ -61,7 +61,7 @@ export default function Projects() {
       github: 'https://github.com/seu-usuario/lab-desenvolvimento-atv01',
       date: '2025',
       year: 2025,
-      image: '/projects/project-experience.png',
+         image: '../../public/projects/portifolio.gif',
     },
     {
       id: 5,
@@ -72,7 +72,7 @@ export default function Projects() {
       github: 'https://github.com/seu-usuario/sistema-agendamento',
       date: '2026',
       year: 2026,
-      image: '/projects/project-contact.png',
+       image: '../../public/projects/agendamento.gif',
     },
   ];
 
